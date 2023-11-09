@@ -17,6 +17,7 @@ const Item = (name: String, exp: Date, handler: (item:any)=>void) => {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 padding: 16,
+                marginBottom: 10
             }}
         >
             <Text
