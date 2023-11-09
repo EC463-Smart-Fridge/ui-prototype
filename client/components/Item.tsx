@@ -4,7 +4,7 @@ const months = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
-const Item = (name: String, exp: Date, handler: ()=>void) => {
+const Item = (name: String, exp: Date, handler: (item:any)=>void) => {
     return (
         <View 
             style={{

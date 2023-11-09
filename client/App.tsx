@@ -24,18 +24,24 @@ const App = () => {
 
   const [adding, setAdding] = useState<boolean>(false);
   const [input, setInput] = useState<string>("");
-  const [items, setItems] = useState<Food[]>([sampleItem]);
+  const [items, setItems] = useState<Food[]>([]);
 
-  const handler = () => Alert.alert('button pressed');
-  const addHandler = () => setItems(items.concat(sampleItem))
+  // const handleRemove = () => Alert.alert(JSON.stringify("hi"));
+  const handleAdd = () => setItems(items.concat(sampleItem))
 
   return (
     <SafeAreaView>
       <Text style={{textAlign: 'center',}}>Items</Text>
-      {items.map((item, i) => (<View key={i}>{Item(item.name, item.exp, handler)}</View>))}
+      {items.map((item, i) => (
+        <View key={i}>
+          {Item(item.name, item.exp, () => (
+            setItems(items.filter((_, index) => index !== i))
+            ))}
+        </View>
+      ))}
 
       <Pressable
-        onPress={addHandler}
+        onPress={handleAdd}
         style={{
           borderRadius:10,
           backgroundColor: 'lightblue',
