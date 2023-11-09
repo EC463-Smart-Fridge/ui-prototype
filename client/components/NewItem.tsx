@@ -29,7 +29,7 @@ const NewItem = (items: any[], setItems:Dispatch<SetStateAction<any[]>>) => {
                 justifyContent: 'space-between',
             }}
         >
-        <DatePicker
+            <DatePicker
                 modal
                 open={open}
                 date={date}
@@ -92,4 +92,4 @@ const NewItem = (items: any[], setItems:Dispatch<SetStateAction<any[]>>) => {
     )
 }
 
-export default NewItem
+export default NewItem;
