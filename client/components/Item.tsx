@@ -1,3 +1,4 @@
+import React from 'react'
 import { Text, View, Button } from "react-native"
 
 const months = ["January", "February", "March", "April", "May", "June",

@@ -8,29 +8,29 @@ import {
   Text,
   useColorScheme,
   View,
-  Alert,
-  Button,
   Pressable,
 } from 'react-native';
 import Item from './components/Item';
+import NewItem from './components/NewItem';
 
 const App = () => {
-  type Food = {
+  interface Food {
     name: String;
     exp: Date;
   };
 
-  const sampleItem: Food = {name: "carrot", exp: new Date("2022-03-25")};
+  // const sampleItem: Food = {name: "carrot", exp: new Date("2022-03-25")};
 
-  const [adding, setAdding] = useState<boolean>(false);
+  // const [adding, setAdding] = useState<boolean>(false);
   const [input, setInput] = useState<string>("");
+  const [date, setDate] = useState<Date>(new Date);
   const [items, setItems] = useState<Food[]>([]);
 
-  // const handleRemove = () => Alert.alert(JSON.stringify("hi"));
-  const handleAdd = () => setItems(items.concat(sampleItem))
+  // const handleRemove = (i: any) => setItems(items.filter((_, index) => index !== i))
+  // const handleAdd = () => setItems(items.concat(sampleItem))
 
   return (
-    <SafeAreaView>
+    <ScrollView>
       <Text style={{textAlign: 'center',}}>Items</Text>
       {items.map((item, i) => (
         <View key={i}>
@@ -40,20 +40,8 @@ const App = () => {
         </View>
       ))}
 
-      <Pressable
-        onPress={handleAdd}
-        style={{
-          borderRadius:10,
-          backgroundColor: 'lightblue',
-          height:32,
-          alignItems: 'center',
-        }}
-      >
-        <Text>
-          Add Item
-        </Text>
-      </Pressable>
-    </SafeAreaView>
+      {NewItem(items, setItems)}
+    </ScrollView>
   )
 }
 
