@@ -30,15 +30,13 @@ const NewItem = (items: any[], setItems:Dispatch<SetStateAction<any[]>>) => {
             }}
         >
             <DatePicker
-                modal
-                open={open}
-                date={date}
+                modal open={open} date={date}
                 onConfirm={(date) => {
-                setOpen(false)
-                setDate(date)
+                    setOpen(false)
+                    setDate(date)
                 }}
                 onCancel={() => {
-                setOpen(false)
+                    setOpen(false)
                 }}
                 style={{
                     flexGrow: 1,
@@ -84,7 +82,12 @@ const NewItem = (items: any[], setItems:Dispatch<SetStateAction<any[]>>) => {
                     
                 }}
             >
-                <Text>
+                <Text
+                    style={{
+                        textAlignVertical: 'center',
+                        height: '100%'
+                    }}
+                >
                     Add
                 </Text>
             </Pressable>
