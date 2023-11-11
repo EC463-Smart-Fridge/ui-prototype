@@ -1,11 +1,11 @@
 import React from 'react'
-import { Text, View, Button } from "react-native"
+import { Text, View, Pressable } from "react-native"
 
 const months = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
-const Item = (name: String, exp: Date, handler: (item:any)=>void) => {
+const Item = (name: string, exp: Date, hasExp: boolean, handler: (item:any)=>void) => {
     return (
         <View 
             style={{
@@ -16,7 +16,7 @@ const Item = (name: String, exp: Date, handler: (item:any)=>void) => {
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                padding: 16,
+                paddingLeft: 10,
                 marginBottom: 10
             }}
         >
@@ -38,14 +38,29 @@ const Item = (name: String, exp: Date, handler: (item:any)=>void) => {
                     paddingRight: 2,
                 }}
             >
-                {months[Number(exp.getMonth().toString())]}
-                {' '}
-                {exp.getDay().toString()}
+                {hasExp ? months[exp.getMonth()] + ' ' + exp.getDay().toString() : ''}
             </Text>
-            <Button
-                title="X"
+            <Pressable 
                 onPress={handler}
-            />
+                style={{
+                    width: 50,
+                    height: '100%',
+                    backgroundColor: 'lightcoral',
+                    borderTopRightRadius: 10,
+                    borderBottomRightRadius: 10,
+                    alignItems: 'center'
+                    
+                }} 
+            >
+                <Text
+                    style={{
+                        textAlignVertical: 'center',
+                        height: '100%'
+                    }}
+                >
+                    -
+                </Text>
+            </Pressable>
         </View>
     )
 }

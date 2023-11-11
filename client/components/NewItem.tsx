@@ -10,10 +10,13 @@ const months = ["January", "February", "March", "April", "May", "June",
 const NewItem = (items: any[], setItems:Dispatch<SetStateAction<any[]>>) => {
     const [input, setInput] = useState<string>("");
     const [date, setDate] = useState<Date>(new Date);
+    const [hasDate, setHasDate] = useState<boolean>(false)
     const [open, setOpen] = useState(false)
+
     const inputHandler = () => {
         if (input.trim() != "") {
-            setItems(items.concat({name: input, exp: date}));
+            setItems([...items, ({name: input, exp: date, hasExp: hasDate})]);
+            setHasDate(false)
         } 
         setInput("")
     }
@@ -22,22 +25,31 @@ const NewItem = (items: any[], setItems:Dispatch<SetStateAction<any[]>>) => {
             style={{
                 width: '100%',
                 height: 64,
-                backgroundColor: 'lightgray',
+                backgroundColor: 'whitesmoke',
                 borderRadius: 10,
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'space-between',
+                paddingLeft: 10,
             }}
         >
             <DatePicker
-                modal open={open} date={date}
+                modal open={open} 
+                date={date} 
+                mode="date" 
+                androidVariant = "nativeAndroid"
+
                 onConfirm={(date) => {
                     setOpen(false)
                     setDate(date)
+                    setHasDate(true)
+                    console.log(date)
                 }}
+
                 onCancel={() => {
                     setOpen(false)
                 }}
+
                 style={{
                     flexGrow: 1,
                     width: 200,
@@ -65,9 +77,8 @@ const NewItem = (items: any[], setItems:Dispatch<SetStateAction<any[]>>) => {
                         paddingRight: 2,
                     }}
                 >
-                    {months[Number(date.getMonth().toString())]}
-                    {' '}
-                    {date.getDay().toString()}
+                    {hasDate ? months[date.getMonth()] + ' ' + date.getDay().toString() : "Add Date"}
+
                 </Text>
             </Pressable>
             <Pressable
