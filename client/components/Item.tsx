@@ -11,7 +11,7 @@ const Item = (name: string, exp: Date, hasExp: boolean, handler: (item:any)=>voi
             style={{
                 width: '100%',
                 height: 64,
-                backgroundColor: 'lightgray',
+                backgroundColor: 'rgba(128, 128, 128, 0.8)',
                 borderRadius: 10,
                 display: 'flex',
                 flexDirection: 'row',
@@ -65,4 +65,4 @@ const Item = (name: string, exp: Date, hasExp: boolean, handler: (item:any)=>voi
     )
 }
 
-export default Item
+export default Item;

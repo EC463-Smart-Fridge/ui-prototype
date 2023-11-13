@@ -1,7 +1,8 @@
 import React from 'react'
-import {Dispatch, SetStateAction, useState} from 'react'
-import { Text, TextInput, View, Pressable } from "react-native"
+import {Dispatch, SetStateAction, useState, Fragment} from 'react'
+import { Text, TextInput, View, Pressable, } from "react-native"
 import DatePicker from 'react-native-date-picker'
+import { Calendar, CalendarUtils } from 'react-native-calendars'
 
 const months = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
@@ -21,11 +22,12 @@ const NewItem = (items: any[], setItems:Dispatch<SetStateAction<any[]>>) => {
         setInput("")
     }
     return (
+        <Fragment>
         <View  
             style={{
                 width: '100%',
                 height: 64,
-                backgroundColor: 'whitesmoke',
+                backgroundColor: 'rgba(128, 128, 128, 0.25)',
                 borderRadius: 10,
                 display: 'flex',
                 flexDirection: 'row',
@@ -33,29 +35,6 @@ const NewItem = (items: any[], setItems:Dispatch<SetStateAction<any[]>>) => {
                 paddingLeft: 10,
             }}
         >
-            <DatePicker
-                modal open={open} 
-                date={date} 
-                mode="date" 
-                androidVariant = "nativeAndroid"
-
-                onConfirm={(date) => {
-                    setOpen(false)
-                    setDate(date)
-                    setHasDate(true)
-                    console.log(date)
-                }}
-
-                onCancel={() => {
-                    setOpen(false)
-                }}
-
-                style={{
-                    flexGrow: 1,
-                    width: 200,
-                    height: 20,
-                }}
-            />
             <TextInput
                 placeholder="add item"
                 value={input}
@@ -68,7 +47,7 @@ const NewItem = (items: any[], setItems:Dispatch<SetStateAction<any[]>>) => {
                 }}
             >
             </TextInput>
-            <Pressable onPress={() => setOpen(true)}>
+            <Pressable onPress={() => setOpen(!open)}>
                 <Text
                     style={{
                         height: '100%',
@@ -103,6 +82,24 @@ const NewItem = (items: any[], setItems:Dispatch<SetStateAction<any[]>>) => {
                 </Text>
             </Pressable>
         </View>
+        {
+            open ?
+            <Calendar
+                onDayPress={ (day) => {
+                    setDate(new Date(day.dateString))
+                    setOpen(false)
+                    setHasDate(true)
+                }}
+                style={{
+                    display: 'flex',
+                    backgroundColor: 'white',
+                    justifyContent: 'center',
+                }}
+                />
+                :
+                <></>
+            }
+        </Fragment>
     )
 }
 

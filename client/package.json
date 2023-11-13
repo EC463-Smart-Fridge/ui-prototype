@@ -12,6 +12,7 @@
   "dependencies": {
     "react": "18.2.0",
     "react-native": "0.72.6",
+    "react-native-calendars": "^1.1302.0",
     "react-native-date-picker": "^4.3.3",
     "react-native-svg": "^13.14.0"
   },

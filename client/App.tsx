@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import Item from './components/Item';
 import NewItem from './components/NewItem';
+import Calendar from 'react-native-calendars/src/calendar';
 
 const App = () => {
   interface Food {
@@ -37,6 +38,7 @@ const App = () => {
       ))}
 
       {NewItem(items, setItems)}
+      {/* <Calendar/> */}
     </ScrollView>
   )
 }
