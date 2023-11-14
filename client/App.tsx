@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import {
   SafeAreaView,
@@ -21,6 +21,10 @@ const App = () => {
   };
 
   const [items, setItems] = useState<Food[]>([]);
+
+  useEffect(() => {
+    console.log("testing")
+  }, [])
 
   return (
     <ScrollView
