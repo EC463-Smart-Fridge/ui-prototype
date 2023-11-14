@@ -10,6 +10,19 @@
       "StackName": "amplify-client-dev-174313",
       "StackId": "arn:aws:cloudformation:us-east-1:532305636260:stack/amplify-client-dev-174313/3310ee70-833f-11ee-848a-0acdbe75f419",
       "AmplifyAppId": "d2qnboqaenandl"
+    },
+    "categories": {
+      "storage": {
+        "fridgebase": {
+          "tableName": "fridgebase",
+          "region": "us-east-1",
+          "arn": "arn:aws:dynamodb:us-east-1:532305636260:table/fridgebase",
+          "partitionKeyName": "pk",
+          "partitionKeyType": "S",
+          "sortKeyName": "sk",
+          "sortKeyType": "S"
+        }
+      }
     }
   }
 }

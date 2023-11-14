@@ -16,7 +16,7 @@ import NewItem from './components/NewItem';
 const App = () => {
   interface Food {
     name: string;
-    exp: Date;
+    exp: string;
     hasExp: boolean;
   };
 

@@ -9,7 +9,7 @@ const months = ["January", "February", "March", "April", "May", "June",
 
 const NewItem = (items: any[], setItems:Dispatch<SetStateAction<any[]>>) => {
     const [input, setInput] = useState<string>("");
-    const [date, setDate] = useState<Date>(new Date);
+    const [date, setDate] = useState<string>("");
     const [hasDate, setHasDate] = useState<boolean>(false)
     const [open, setOpen] = useState(false)
 
@@ -56,7 +56,7 @@ const NewItem = (items: any[], setItems:Dispatch<SetStateAction<any[]>>) => {
                             paddingRight: 2,
                         }}
                     >
-                        {hasDate ? months[date.getMonth()] + ' ' + date.getDay().toString() : "Add Date"}
+                        {hasDate ? date : "Add Date"}
                     </Text>
                 </Pressable>
                 <Pressable
@@ -84,7 +84,7 @@ const NewItem = (items: any[], setItems:Dispatch<SetStateAction<any[]>>) => {
             </View>
             {open ? 
                 <Calendar
-                    onDayPress={(e) => {setDate(new Date(e.dateString)); setOpen(false); setHasDate(true)}}
+                    onDayPress={(e) => {setDate(e.dateString); setOpen(false); setHasDate(true)}}
                 />
                 :
                 <></>}
