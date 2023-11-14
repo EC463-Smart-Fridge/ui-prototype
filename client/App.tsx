@@ -26,6 +26,7 @@ const App = () => {
     <ScrollView
       style={{
         padding: 10,
+        backgroundColor: 'whitesmoke'
       }}
     >
       {items.map((item, i) => (

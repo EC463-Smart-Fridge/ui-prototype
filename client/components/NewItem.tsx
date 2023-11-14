@@ -27,7 +27,8 @@ const NewItem = (items: any[], setItems:Dispatch<SetStateAction<any[]>>) => {
                 style={{
                     width: '100%',
                     height: 64,
-                    backgroundColor: 'whitesmoke',
+                    backgroundColor: 'lightgray',
+                    opacity: 0.5, 
                     borderRadius: 10,
                     display: 'flex',
                     flexDirection: 'row',
@@ -36,7 +37,7 @@ const NewItem = (items: any[], setItems:Dispatch<SetStateAction<any[]>>) => {
                 }}
             >
                 <TextInput
-                    placeholder="add item"
+                    placeholder="Add item"
                     value={input}
                     onChangeText={setInput}
                     style={{
@@ -74,7 +75,8 @@ const NewItem = (items: any[], setItems:Dispatch<SetStateAction<any[]>>) => {
                     <Text
                         style={{
                             textAlignVertical: 'center',
-                            height: '100%'
+                            height: '100%',
+                            opacity: 0.75,
                         }}
                     >
                         Add
