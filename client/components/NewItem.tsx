@@ -83,7 +83,7 @@ const NewItem = (items: any[], setItems:Dispatch<SetStateAction<any[]>>) => {
             </View>
             {open ? 
                 <Calendar
-                    onDayPress={(e) => {setDate(new Date(e.dateString)); setOpen(false);}}
+                    onDayPress={(e) => {setDate(new Date(e.dateString)); setOpen(false); setHasDate(true)}}
                 />
                 :
                 <></>}
