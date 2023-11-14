@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import {Dispatch, SetStateAction, useState} from 'react'
 import { Text, TextInput, View, Pressable } from "react-native"
-import DatePicker from 'react-native-date-picker'
 import { Calendar } from 'react-native-calendars'
 
 const months = ["January", "February", "March", "April", "May", "June",
