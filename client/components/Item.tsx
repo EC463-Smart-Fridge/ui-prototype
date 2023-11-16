@@ -5,7 +5,7 @@ const months = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
-const Item = (name: string, exp: Date, hasExp: boolean, handler: (item:any)=>void) => {
+const Item = (name: string, exp: string, hasExp: boolean, handler: (item:any)=>void) => {
     return (
         <View 
             style={{
@@ -38,7 +38,7 @@ const Item = (name: string, exp: Date, hasExp: boolean, handler: (item:any)=>voi
                     paddingRight: 2,
                 }}
             >
-                {hasExp ? months[exp.getMonth()] + ' ' + exp.getDay().toString() : ''}
+                {hasExp ? exp : ''}
             </Text>
             <Pressable 
                 onPress={handler}
